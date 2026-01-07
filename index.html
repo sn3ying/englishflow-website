@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnglishFlow - Aprende Inglés Gratis y Naturalmente</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --danger: #f87171;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border-radius: 12px;
+            --box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #f5f7ff;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header y Navegación */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            padding: 0.7rem 1.5rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-accent {
+            background-color: var(--accent);
+            color: white;
+        }
+
+        .btn-accent:hover {
+            background-color: #38b2d6;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f5f7ff 0%, #e3e9ff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--gray);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        /* Features */
+        .features {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--primary);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+        }
+
+        /* Secciones específicas */
+        .methodology {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .method-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .method-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Flashcard Simulator */
+        .flashcard-section {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .flashcard-container {
+            max-width: 800px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .flashcard {
+            width: 100%;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            cursor: pointer;
+            margin-bottom: 2rem;
+        }
+
+        .flashcard.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .flashcard-front {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .flashcard-back {
+            background-color: white;
+            color: var(--dark);
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-img {
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .flashcard-word {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .flashcard-translation {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .flashcard-example {
+            font-style: italic;
+            color: var(--gray);
+            text-align: center;
+        }
+
+        .flashcard-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .video-player {
+            width: 100%;
+            height: 400px;
+            background-color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+
+        .video-controls {
+            padding: 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .control-group {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Registration */
+        .registration {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .registration-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f8f9fa;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--light-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px rgba(76, 201, 240, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #495057;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .flashcard {
+                height: 350px;
+            }
+            
+            .video-player {
+                height: 300px;
+            }
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header y Navegación -->
+    <header>
+        <div class="container">
+            <div class="nav-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-language"></i>
+                    <span>EnglishFlow</span>
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#metodos">Métodos</a></li>
+                    <li><a href="#flashcards">Flashcards</a></li>
+                    <li><a href="#videos">Videos</a></li>
+                    <li><a href="#examenes">Exámenes</a></li>
+                    <li><a href="#comunidad">Comunidad</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-outline" id="loginBtn">Iniciar Sesión</button>
+                    <button class="btn btn-primary" id="registerBtn">Registrarse</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Aprende Inglés Gratis, <span style="color: var(--primary);">Naturalmente</span></h1>
+                    <p>Domina el inglés con métodos no convencionales, sin pagar por cursos caros. Aprende con flashcards, escenas de películas, técnicas de pensamiento en inglés y más. Todo completamente gratis.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn btn-primary" id="startLearningBtn">
+                            <i class="fas fa-play-circle"></i> Comenzar a Aprender
+                        </button>
+                        <button class="btn btn-outline" id="howItWorksBtn">
+                            <i class="fas fa-question-circle"></i> Cómo Funciona
+                        </button>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" alt="Personas aprendiendo inglés">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="metodos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Métodos de Aprendizaje Efectivos</h2>
+                <p>En EnglishFlow utilizamos técnicas comprobadas que aceleran tu aprendizaje del inglés de forma natural</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Flashcards Visuales</h3>
+                    <p>Aprende vocabulario con imágenes asociativas. Más de 2000 palabras comunes organizadas por categorías.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-film"></i>
+                    </div>
+                    <h3>Escenas de Películas</h3>
+                    <p>Fragmentos cortos de series y películas con controles de repetición y subtítulos en inglés/español.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Pensar en Inglés</h3>
+                    <p>Técnicas para cambiar tu patrón de pensamiento al inglés y acelerar la fluidez.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Preparación para Exámenes</h3>
+                    <p>Recursos gratuitos para TOEFL, IELTS, Cambridge y más. Simulacros y estrategias.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metodología -->
+    <section class="methodology">
+        <div class="container">
+            <div class="section-title">
+                <h2>Aprende de Forma Natural</h2>
+                <p>Olvida los métodos tradicionales de memorización. Nuestra metodología se basa en la adquisición natural del lenguaje</p>
+            </div>
+            
+            <div class="methodology-grid">
+                <div class="method-card">
+                    <i class="fas fa-repeat"></i>
+                    <h3>Repetición Espaciada</h3>
+                    <p>Sistema inteligente que muestra contenido en intervalos óptimos para la memorización a largo plazo.</p>
+                </div>
+                
+                <div class="method-card">
+                    <i class="fas fa-assistive-listening-systems"></i>
+                    <h3>Inmersión Auditiva</h3>
+                    <p>Exposición constante al inglés hablado en contextos reales, no en grabaciones de estudio.</p>
+                </div>
+                
+                <div class="method-card">
+                    <i class="fas fa-comments"></i>
+                    <h3>Frases Completas</h3>
+                    <p>Aprende frases útiles en lugar de palabras sueltas. Contextualiza el vocabulario desde el inicio.</p>
+                </div>
+                
+                <div class="method-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Progreso Personalizado</h3>
+                    <p>El sistema se adapta a tu nivel y ritmo de aprendizaje, enfocándose en tus áreas de oportunidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flashcard Simulator -->
+    <section class="flashcard-section" id="flashcards">
+        <div class="container">
+            <div class="section-title">
+                <h2>Flashcards Interactivas</h2>
+                <p>Practica con nuestro sistema de flashcards. Haz clic en la tarjeta para voltearla y ver la traducción y ejemplo</p>
+            </div>
+            
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-front">
+                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Apple" class="flashcard-img">
+                        <div class="flashcard-word" id="word">Apple</div>
+                        <p style="margin-top: 1rem;">Haz clic para ver la traducción y ejemplo</p>
+                    </div>
+                    <div class="flashcard-back">
+                        <div class="flashcard-translation" id="translation">Manzana</div>
+                        <p class="flashcard-example" id="example">"I eat an apple every day for breakfast."<br>(Como una manzana cada día para el desayuno)</p>
+                        <div style="margin-top: 2rem; color: var(--gray); font-size: 0.9rem;">
+                            <i class="fas fa-lightbulb"></i> Consejo: Asocia la palabra con la imagen para memorizarla mejor
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flashcard-controls">
+                    <button class="btn btn-outline" id="prevCard">
+                        <i class="fas fa-chevron-left"></i> Anterior
+                    </button>
+                    <button class="btn btn-accent" id="flipCard">
+                        <i class="fas fa-sync-alt"></i> Voltear Tarjeta
+                    </button>
+                    <button class="btn btn-primary" id="nextCard">
+                        Siguiente <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="videos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Aprende con Escenas Reales</h2>
+                <p>Selección de fragmentos de películas y series con controles para repetir, cambiar subtítulos y velocidad</p>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-player">
+                    <div style="text-align: center;">
+                        <i class="fas fa-play-circle" style="font-size: 4rem; color: var(--accent); margin-bottom: 1rem;"></i>
+                        <h3>Reproductor de Escenas en Inglés</h3>
+                        <p>Selecciona una escena de nuestra biblioteca para comenzar</p>
+                    </div>
+                </div>
+                
+                <div class="video-controls">
+                    <div class="control-group">
+                        <button class="btn btn-outline">
+                            <i class="fas fa-backward"></i> Repetir
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-play"></i> Reproducir
+                        </button>
+                        <button class="btn btn-outline">
+                            <i class="fas fa-forward"></i> Siguiente
+                        </button>
+                    </div>
+                    
+                    <div class="control-group">
+                        <div>
+                            <label for="subtitles">Subtítulos:</label>
+                            <select id="subtitles" class="form-control" style="width: auto; padding: 0.5rem;">
+                                <option value="none">Sin subtítulos</option>
+                                <option value="english">Inglés</option>
+                                <option value="spanish">Español</option>
+                                <option value="both">Ambos</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="speed">Velocidad:</label>
+                            <select id="speed" class="form-control" style="width: auto; padding: 0.5rem;">
+                                <option value="0.5">0.5x</option>
+                                <option value="0.75">0.75x</option>
+                                <option value="1" selected>Normal</option>
+                                <option value="1.25">1.25x</option>
+                                <option value="1.5">1.5x</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-top: 2rem; text-align: center;">
+                <p>Biblioteca con más de 500 escenas de películas, series, TED Talks y noticias organizadas por nivel</p>
+                <button class="btn btn-accent">
+                    <i class="fas fa-film"></i> Explorar Biblioteca Completa
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <div class="section-title">
+                <h2>Regístrate Gratis</h2>
+                <p>Crea tu cuenta para guardar tu progreso, personalizar tu aprendizaje y acceder a contenido exclusivo</p>
+            </div>
+            
+            <div class="registration-form">
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" class="form-control" placeholder="tucorreo@ejemplo.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" class="form-control" placeholder="Crea una contraseña segura" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="level">Nivel de Inglés Actual</label>
+                        <select id="level" class="form-control" required>
+                            <option value="">Selecciona tu nivel</option>
+                            <option value="beginner">Principiante (A1)</option>
+                            <option value="elementary">Elemental (A2)</option>
+                            <option value="intermediate">Intermedio (B1)</option>
+                            <option value="upper-intermediate">Intermedio Alto (B2)</option>
+                            <option value="advanced">Avanzado (C1)</option>
+                            <option value="proficiency">Competencia (C2)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="goal">Objetivo de Aprendizaje</label>
+                        <select id="goal" class="form-control" required>
+                            <option value="">Selecciona tu objetivo principal</option>
+                            <option value="conversation">Conversación diaria</option>
+                            <option value="travel">Viajes</option>
+                            <option value="work">Trabajo</option>
+                            <option value="academic">Estudios académicos</option>
+                            <option value="exam">Preparación para examen</option>
+                            <option value="improve">Mejorar habilidades generales</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; padding: 1rem;">
+                        <i class="fas fa-user-plus"></i> Crear Cuenta Gratis
+                    </button>
+                    
+                    <p style="text-align: center; margin-top: 1.5rem; color: var(--gray); font-size: 0.9rem;">
+                        Al registrarte, aceptas nuestros <a href="#" style="color: var(--primary);">Términos de Servicio</a> y <a href="#" style="color: var(--primary);">Política de Privacidad</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>EnglishFlow</h3>
+                    <p>Aprende inglés de forma natural, efectiva y completamente gratis. Rompe las barreras del aprendizaje tradicional.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-facebook"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-twitter"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-instagram"></i></a>
+                        <a href="#" style="color: white; font-size: 1.2rem;"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Flashcards por Categoría</a></li>
+                        <li><a href="#">Escenas por Nivel</a></li>
+                        <li><a href="#">Guías de Exámenes</a></li>
+                        <li><a href="#">Técnicas de Pronunciación</a></li>
+                        <li><a href="#">Podcasts en Inglés</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Comunidad</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Foro de Discusión</a></li>
+                        <li><a href="#">Intercambio de Idiomas</a></li>
+                        <li><a href="#">Grupos de Estudio</a></li>
+                        <li><a href="#">Blog de Aprendizaje</a></li>
+                        <li><a href="#">Testimonios</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-envelope"></i> soporte@englishflow.com</li>
+                        <li><i class="fas fa-globe"></i> englishflow.com</li>
+                        <li><i class="fas fa-heart"></i> Hecho con pasión para ayudar</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 EnglishFlow. Todos los derechos reservados. Esta es una plataforma educativa gratuita.</p>
+                <p>¿Tienes ideas para mejorar EnglishFlow? <a href="#" style="color: var(--accent);">Contáctanos</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Datos de ejemplo para las flashcards
+        const flashcards = [
+            {
+                word: "Apple",
+                translation: "Manzana",
+                example: "I eat an apple every day for breakfast.",
+                image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                word: "Book",
+                translation: "Libro",
+                example: "She is reading an interesting book about history.",
+                image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                word: "Friend",
+                translation: "Amigo/Amiga",
+                example: "My best friend lives in another country.",
+                image: "https://images.unsplash.com/photo-1544725176-7c40e5a71c5e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            },
+            {
+                word: "Water",
+                translation: "Agua",
+                example: "It's important to drink enough water every day.",
+                image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+            }
+        ];
+
+        let currentCardIndex = 0;
+
+        // Elementos del DOM
+        const flashcardElement = document.getElementById('flashcard');
+        const wordElement = document.getElementById('word');
+        const translationElement = document.getElementById('translation');
+        const exampleElement = document.getElementById('example');
+        const flipCardBtn = document.getElementById('flipCard');
+        const nextCardBtn = document.getElementById('nextCard');
+        const prevCardBtn = document.getElementById('prevCard');
+        const registerForm = document.getElementById('registerForm');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const startLearningBtn = document.getElementById('startLearningBtn');
+        const howItWorksBtn = document.getElementById('howItWorksBtn');
+
+        // Cargar la primera flashcard
+        function loadCard(index) {
+            const card = flashcards[index];
+            wordElement.textContent = card.word;
+            translationElement.textContent = card.translation;
+            exampleElement.textContent = `"${card.example}"\n(${card.translation.toLowerCase()})`;
+            
+            // Resetear la tarjeta a la posición frontal
+            flashcardElement.classList.remove('flipped');
+        }
+
+        // Voltear la tarjeta
+        flipCardBtn.addEventListener('click', () => {
+            flashcardElement.classList.toggle('flipped');
+        });
+
+        // Siguiente tarjeta
+        nextCardBtn.addEventListener('click', () => {
+            currentCardIndex = (currentCardIndex + 1) % flashcards.length;
+            loadCard(currentCardIndex);
+        });
+
+        // Tarjeta anterior
+        prevCardBtn.addEventListener('click', () => {
+            currentCardIndex = (currentCardIndex - 1 + flashcards.length) % flashcards.length;
+            loadCard(currentCardIndex);
+        });
+
+        // Voltear la tarjeta al hacer clic en ella
+        flashcardElement.addEventListener('click', () => {
+            flashcardElement.classList.toggle('flipped');
+        });
+
+        // Manejo del formulario de registro
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const level = document.getElementById('level').value;
+            const goal = document.getElementById('goal').value;
+            
+            // Simulación de registro exitoso
+            alert(`¡Registro exitoso!\nBienvenido a EnglishFlow.\nTu cuenta con ${email} ha sido creada.\nNivel: ${level}\nObjetivo: ${goal}\n\nRedirigiendo a tu dashboard de aprendizaje...`);
+            
+            // Aquí normalmente harías una petición a un servidor
+            // Para este ejemplo, simplemente limpiamos el formulario
+            registerForm.reset();
+            
+            // Scroll a la sección de inicio
+            document.getElementById('inicio').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Navegación de botones
+        loginBtn.addEventListener('click', () => {
+            alert('Funcionalidad de inicio de sesión. En una implementación real, esto abriría un modal de login.');
+        });
+
+        registerBtn.addEventListener('click', () => {
+            document.getElementById('registration').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        startLearningBtn.addEventListener('click', () => {
+            document.getElementById('flashcards').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        howItWorksBtn.addEventListener('click', () => {
+            document.getElementById('metodos').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Cargar la primera tarjeta al inicio
+        loadCard(0);
+
+        // Efecto de aparición al hacer scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observar elementos para animación
+        document.querySelectorAll('.feature-card, .method-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
